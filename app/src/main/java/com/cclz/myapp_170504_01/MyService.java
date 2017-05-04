@@ -112,7 +112,7 @@ public class MyService extends Service {
         manager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
         count = 0;
         handler.post(showTime);
-        return super.onStartCommand(intent, flags, startId);
+        return START_NOT_STICKY;
     }
 
     @Override
