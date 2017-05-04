@@ -11,6 +11,7 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     NotificationManager manager;
     final int NOTIFICATION_ID=321;  //  通知編號
+    Intent serviceIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +42,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickStartService(View v){
-        Intent it=new Intent(MainActivity.this, MyService.class);
-        startService(it);
+        serviceIntent=new Intent(MainActivity.this, MyService.class);
+        startService(serviceIntent);
+    }
+
+    public void clickStopService(View v){
+        stopService(serviceIntent);
     }
 
 }

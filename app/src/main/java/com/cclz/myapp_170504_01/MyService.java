@@ -11,6 +11,8 @@ import java.util.Date;
 
 public class MyService extends Service {
     Handler handler=new Handler();
+    int count;
+
     public MyService() {
     }
 
@@ -18,7 +20,10 @@ public class MyService extends Service {
         @Override
         public void run() {
             Log.d("SER1", "Time: " + new java.util.Date());
-            handler.postDelayed(this, 1000);
+            if(count <10){
+                count ++;
+                handler.postDelayed(this, 1000);
+            }
         }
     };
 
@@ -38,9 +43,15 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("SER1", "This is onStartCommand");
+        count = 0;
         handler.post(showTime);
         return super.onStartCommand(intent, flags, startId);
     }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacks(showTime);
+        Log.d("SER1", "This is onDestroy");
+    }
 }
