@@ -16,7 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".DetailActivity" />
+
+        <service
+            android:name="com.cclz.myapp_170504_01.MyService"
+            android:enabled="false"
+            android:exported="false"></service>
     </application>
 
 </manifest>
