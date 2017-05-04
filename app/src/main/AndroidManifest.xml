@@ -20,8 +20,8 @@
 
         <service
             android:name="com.cclz.myapp_170504_01.MyService"
-            android:enabled="false"
-            android:exported="false"></service>
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
